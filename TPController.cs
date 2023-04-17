@@ -26,8 +26,11 @@ public class TPController : MonoBehaviour
     {
         if (other.tag=="Player")
         {
+            CharacterController cc = other.GetComponent<CharacterController>();
+            cc.enabled = false;
             Debug.Log(other.transform.position.x);
-            //other.transform.position.x = 2;// = new Vector3(0,0,0);//tp.position + offset;
+            other.transform.position = tp.position + offset;
+            cc.enabled = true;
         }
     }
 

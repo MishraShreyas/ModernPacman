@@ -5,8 +5,10 @@ using UnityEngine;
 public class AudioPlayer : MonoBehaviour
 {
     ///public AudioClip footsteps;
+    public bool dead=false;
 
     private AudioSource _as;
+
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,9 @@ public class AudioPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {//|| !Input.GetKey(KeyCode.A) || !Input.GetKey(KeyCode.S) || !Input.GetKey(KeyCode.D)
+
+        if (dead) return;
+
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) _as.Play();
         else if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D)) _as.Pause();
 
